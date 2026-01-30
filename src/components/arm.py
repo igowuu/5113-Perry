@@ -125,7 +125,6 @@ class Arm(AdaptiveComponent):
 
         total_pct_out = (ff_volts + pid_volts) / RobotConst.NOMINAL_VOLTAGE
         total_pct_out = clamp(total_pct_out, -self.max_pct_output.value, self.max_pct_output.value)
-        print(total_pct_out)
         self._prev_velocity_setpoint = desired_velocity
 
         self.left_arm_motor.set(ControlMode.PercentOutput, total_pct_out)
@@ -178,3 +177,4 @@ class Arm(AdaptiveComponent):
 
         self._move_arm_velocity(requested_radps.value)
         self.arm_axis_controller.clear()
+
